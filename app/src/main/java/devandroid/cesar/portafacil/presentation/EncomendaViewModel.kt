@@ -1,4 +1,4 @@
-import devandroid.cesar.portafacil.domain.Encomenda
+import devandroid.cesar.portafacil.Encomenda
 
 class EncomendaViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: EncomendaRepository
