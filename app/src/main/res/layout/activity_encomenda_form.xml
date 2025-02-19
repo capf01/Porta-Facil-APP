@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <!-- Input field for the recipient's name -->
+    <EditText
+        android:id="@+id/edit_destinatario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Destinatário"/>
+
+    <!-- Input field for the parcel code -->
+    <EditText
+        android:id="@+id/edit_codigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Código"/>
+
+    <!-- Input field for the parcel status -->
+    <EditText
+        android:id="@+id/edit_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Status"/>
+
+    <!-- Button to save the form data -->
+    <Button
+        android:id="@+id/button_salvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"/>
+</LinearLayout>

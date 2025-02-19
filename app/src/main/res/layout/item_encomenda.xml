@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="vertical">
+
+    <!-- TextView to display the recipient's name -->
+    <TextView
+        android:id="@+id/text_destinatario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"/>
+
+    <!-- TextView to display the parcel code -->
+    <TextView
+        android:id="@+id/text_codigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- TextView to display the parcel status -->
+    <TextView
+        android:id="@+id/text_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
