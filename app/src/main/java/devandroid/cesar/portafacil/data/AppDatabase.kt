@@ -1,5 +1,13 @@
-@Database(entities = [Encomenda::class], version = 1)
+package devandroid.cesar.portafacil.data
+
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import android.content.Context
+
+@Database(entities = [Encomenda::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun encomendaDao(): EncomendaDao
 
     companion object {
@@ -11,9 +19,8 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "porta_facil_db"
-                ).fallbackToDestructiveMigration() // Evita crash ao mudar versão
-                    .build()
+                    "encomenda_database"
+                ).build()
                 INSTANCE = instance
                 instance
             }

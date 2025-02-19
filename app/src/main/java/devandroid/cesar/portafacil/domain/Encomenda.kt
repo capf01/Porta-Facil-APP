@@ -1,12 +1,11 @@
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
-@Entity(tableName = "encomenda_table")
+@Entity
 data class Encomenda(
-    @PrimaryKey(autoGenerate = true) val id: Int? = null,  // Permite null para inserções automáticas
+    @PrimaryKey val id: Int,
     val destinatario: String,
     val codigo: String,
     val status: String,
-    val dataRecebimento: Date // Alterado para Date
+    val dataRecebimento: Long
 )

@@ -1,11 +1,11 @@
-package devandroid.cesar.portafacil
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-import java.util.Date // If you're using Date
-
+@Entity
 data class Encomenda(
-    val id: Int,
-    val descricao: String,
-    val dataRecebimento: Long? = null // Milliseconds since epoch, nullable
-    // Or if you're using Date:
-    // val dataRecebimento: Date? = null
+    @PrimaryKey val id: Int,
+    val destinatario: String,
+    val codigo: String,
+    val status: String,
+    val dataRecebimento: Long
 )
