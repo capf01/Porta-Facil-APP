@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import devandroid.cesar.portafacil.data.EncomendaRepository
-
+import devandroid.cesar.portafacil.Encomenda
 class EncomendaViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: EncomendaRepository
     val todasEncomendas: LiveData<List<Encomenda>>
@@ -29,12 +29,16 @@ class EncomendaViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun verificarPrazos() = viewModelScope.launch {
-        val encomendas = repository.getTodasEncomendas().value
-        encomendas?.forEach { encomenda ->
-            val diasRestantes = (encomenda.dataRecebimento - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
-            if (diasRestantes <= 2) {
-                // Enviar alerta
+        repository.getTodasEncomendas()
+            .observeForever { encomendas: List<Encomenda>? -> // Explicit type here
+                encomendas?.forEach { encomenda ->
+                    val dataRecebimento = encomenda.dataRecebimento ?: return@forEach
+                    val diasRestantes =
+                        (dataRecebimento - System.currentTimeMillis()) / (1000 * 60 * 60 * 24)
+                    if (diasRestantes <= 2) {
+                        // ... your alert logic
+                    }
+                }
             }
-        }
     }
 }
